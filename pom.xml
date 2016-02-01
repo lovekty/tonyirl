@@ -14,6 +14,7 @@
         <module>common</module>
         <module>dao</module>
         <module>service</module>
+        <module>passport</module>
     </modules>
 
     <properties>

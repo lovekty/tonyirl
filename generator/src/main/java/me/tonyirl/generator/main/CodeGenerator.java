@@ -30,7 +30,7 @@ public class CodeGenerator {
     private String ddlBasePath = "ddl";
 
     public CodeGenerator() {
-        this("/Users/tony/Documents/codes/java/codegen/output", "me.tonyirl.entity.po", "/Users/tony/Documents/workspace/platform/doc/code_template");
+        this("/Users/tony/Documents/codes/java/codegen/output", "me.tonyirl.entity.po", "/Users/tony/Documents/codes/java/tonyirl/generator/src/main/resources/ftl");
     }
 
     public CodeGenerator(String templatePath) {
