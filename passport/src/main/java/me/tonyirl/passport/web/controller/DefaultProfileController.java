@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/profile")
 public class DefaultProfileController {
 
-    @RequestMapping(value = {"","/"}, method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultProfilePage() {
         return new ModelAndView("profile");
     }

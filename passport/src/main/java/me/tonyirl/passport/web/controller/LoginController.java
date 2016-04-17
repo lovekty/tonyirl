@@ -12,19 +12,19 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by tony on 16-4-17.
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("/login")
 public class LoginController {
 
     @Value("#{commonConfigProperties['passport.default.redirecturi']}")
     private String defaultRedirectUri;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView usernameAndPasswordLoginPage() {
         ModelAndView mav = new ModelAndView("login");
         return mav;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ModelAndView usernameAndPasswordCheckLogin(@RequestParam(value = "redirect", required = false) String redirect, @RequestParam("username") String username, @RequestParam("password") String password) {
         if (StringUtils.isBlank(redirect)) {
             redirect = defaultRedirectUri;
