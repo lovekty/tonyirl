@@ -13,7 +13,7 @@
     <bean id="commonConfigProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <list>
-                <value>classpath:common-conf.properties</value>
+                <value>classpath*:common-conf.properties</value>
             </list>
         </property>
         <property name="fileEncoding" value="UTF-8"/>
