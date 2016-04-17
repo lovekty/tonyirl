@@ -1,0 +1,6 @@
+#parse("/layout/head.vm")
+<title>profile - 个人页</title>
+#parse("/layout/headbody.vm")
+<p>PROFILE PAGE</p>
+
+#parse("/layout/foot.vm")

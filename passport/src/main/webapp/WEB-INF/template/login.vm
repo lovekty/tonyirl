@@ -1,0 +1,10 @@
+#parse("/layout/head.vm")
+<title>Login</title>
+#parse("/layout/headbody.vm")
+<form method="post" action="${request.getContextPath()}/login">
+    <input type="text" name="username" placeholder="请输入用户名">
+    <input type="password" name="password" placeholder="请输入密码">
+    <input type="submit">
+</form>
+
+#parse("/layout/foot.vm")
