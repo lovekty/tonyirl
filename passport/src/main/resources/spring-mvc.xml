@@ -6,7 +6,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <mvc:annotation-driven/>
     <context:component-scan base-package="me.tonyirl.passport.web.controller"/>
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
@@ -15,7 +14,7 @@
                 <property name="supportedMediaTypes">
                     <list>
                         <value>application/json; charset=UTF-8</value>
-                        <value>text/html;charset=UTF-8</value>
+                        <value>text/html; charset=UTF-8</value>
                     </list>
                 </property>
                 <property name="features">

@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
-
-
-    <!--<import resource="classpath*:spring-common.xml" />-->
-    <bean class="me.tonyirl.common.spring.context.ApplicationContextUtils"/>
-
-    <context:property-placeholder file-encoding="UTF-8" ignore-resource-not-found="true"
-                                  properties-ref="commonConfigProperties" ignore-unresolvable="true"/>
-    <util:properties id="commonConfigProperties" ignore-resource-not-found="true"
-                     location="classpath:common-conf.properties"/>
+    <import resource="classpath*:spring-common.xml"/>
 </beans>

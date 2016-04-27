@@ -13,6 +13,6 @@
     <context:property-placeholder file-encoding="UTF-8" ignore-resource-not-found="true"
                                   properties-ref="commonConfigProperties" ignore-unresolvable="true"/>
     <util:properties id="commonConfigProperties" ignore-resource-not-found="true"
-                     location="classpath:common-conf.properties"/>
+                     location="classpath*:common-conf.properties"/>
 
 </beans>
