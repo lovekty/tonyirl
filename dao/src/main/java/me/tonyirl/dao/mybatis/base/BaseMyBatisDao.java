@@ -1,7 +1,6 @@
 package me.tonyirl.dao.mybatis.base;
 
-import me.tonyirl.common.orm.Page;
-import me.tonyirl.common.orm.po.base.BasePoBean;
+import me.tonyirl.common.orm.po.base.BaseEntity;
 import me.tonyirl.common.utils.ReflectionUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -14,7 +13,7 @@ import java.util.Map;
 /**
  * Created by tony on 16/2/1.
  */
-public class BaseMyBatisDao<T extends BasePoBean, PK extends Serializable> extends SqlSessionDaoSupport {
+public class BaseMyBatisDao<T extends BaseEntity, PK extends Serializable> extends SqlSessionDaoSupport {
     public static final String SQL_FIND_BY_ID = "findById";
     public static final String SQL_FIND_ALL = "findAll";
     public static final String SQL_INSERT = "insert";
@@ -80,7 +79,7 @@ public class BaseMyBatisDao<T extends BasePoBean, PK extends Serializable> exten
     public int softDelete(T entity) {
         entity.setVisible(Boolean.FALSE);
         T result = update(entity);
-        return result.getVisible() ? 0 : 1;
+        return result.isVisible() ? 0 : 1;
     }
 
     public T findById(PK id) {

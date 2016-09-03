@@ -1,7 +1,7 @@
 package me.tonyirl.service.base;
 
 import me.tonyirl.common.orm.Page;
-import me.tonyirl.common.orm.po.base.BasePoBean;
+import me.tonyirl.common.orm.po.base.BaseEntity;
 import me.tonyirl.dao.mybatis.base.BaseMyBatisDao;
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by tony on 16/2/1.
  */
-public class BaseService<T extends BasePoBean, PK extends Serializable> {
+public class BaseService<T extends BaseEntity, PK extends Serializable> {
     protected BaseMyBatisDao<T, PK> baseDao;
 
     public BaseMyBatisDao<T, PK> getBaseDao() {

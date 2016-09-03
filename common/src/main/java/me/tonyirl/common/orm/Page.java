@@ -1,6 +1,6 @@
 package me.tonyirl.common.orm;
 
-import me.tonyirl.common.orm.po.base.BasePoBean;
+import me.tonyirl.common.orm.po.base.BaseEntity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by tony on 16/2/1.
  */
-public class Page<T extends BasePoBean> implements Serializable {
+public class Page<T extends BaseEntity> implements Serializable {
     public static final int DEFAULT_PAGE_NO = 1;
     public static final int DEFAULT_PAGE_SIZE = 20;
     public static final int DEFAULT_MAX_PAGE_INDEX_NUMBER = 9;
@@ -122,30 +122,30 @@ public class Page<T extends BasePoBean> implements Serializable {
         this.data = data;
     }
 
-    public int[] getPageNumberList(){
+    public int[] getPageNumberList() {
         if (totalPage > this.maxPageIndexNumber) {
             this.pageNumberList = new int[this.maxPageIndexNumber];
-            int offset = (this.maxPageIndexNumber - 4) /2;
-            if (this.pageNo - offset <= (1+2)) {
-                for(int index = 0 ; index < maxPageIndexNumber-2;index ++ ){
+            int offset = (this.maxPageIndexNumber - 4) / 2;
+            if (this.pageNo - offset <= (1 + 2)) {
+                for (int index = 0; index < maxPageIndexNumber - 2; index++) {
                     pageNumberList[index] = (index + 1);
                 }
-            } else if (this.pageNo + offset  >= (totalPage -2) ) {
+            } else if (this.pageNo + offset >= (totalPage - 2)) {
                 int start = totalPage;
-                for(int index = maxPageIndexNumber-1 ; index > 1;index -- ){
+                for (int index = maxPageIndexNumber - 1; index > 1; index--) {
                     pageNumberList[index] = (start--);
                 }
             } else {
                 int start = pageNo - offset;
-                for(int index = 2 ; index < maxPageIndexNumber-2;index ++ ){
+                for (int index = 2; index < maxPageIndexNumber - 2; index++) {
                     pageNumberList[index] = (start++);
                 }
             }
             pageNumberList[0] = 1;
-            pageNumberList[maxPageIndexNumber-1] = totalPage;
+            pageNumberList[maxPageIndexNumber - 1] = totalPage;
         } else {//总页数小于 设置的页码标签数
             this.pageNumberList = new int[this.totalPage];
-            for (int index = 0; index <= totalPage-1; index++) {
+            for (int index = 0; index <= totalPage - 1; index++) {
                 pageNumberList[index] = (index + 1);
             }
         }

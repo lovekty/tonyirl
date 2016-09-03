@@ -1,33 +1,27 @@
 package me.tonyirl.common.orm.po.base;
 
-import me.tonyirl.common.orm.mybatis.annotation.MyBatisColumn;
-
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by tony on 16/2/1.
+ * Created by tony on 2016/9/4.
  */
-public class BasePoBean implements Serializable {
-    private static final long serialVersionUID = -1122639055410003424L;
+public abstract class BaseEntity implements Serializable {
+    private static final long serialVersionUID = -306913224119839160L;
 
-    @MyBatisColumn(columnName = "id")
-    private Long id;
+    private long id;
 
-    @MyBatisColumn(columnName = "insert_time")
     private Date insertTime;
 
-    @MyBatisColumn(columnName = "update_time")
     private Date updateTime;
 
-    @MyBatisColumn(columnName = "visible")
-    private Boolean visible;
+    private boolean visible;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -47,11 +41,11 @@ public class BasePoBean implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Boolean getVisible() {
+    public boolean isVisible() {
         return visible;
     }
 
-    public void setVisible(Boolean visible) {
+    public void setVisible(boolean visible) {
         this.visible = visible;
     }
 }
