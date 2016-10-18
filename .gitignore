@@ -13,3 +13,11 @@ parent.iml
 passport/passport.iml
 passport/target/
 service/service.iml
+core/target/
+dao/target/
+entity/target/
+generator/target/
+service/target/
+webtest/src/test/
+webtest/target/
+webtest/webtest.iml
