@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <context:component-scan base-package="me.tonyirl.passport.web.controller"/>
+    <context:component-scan base-package="me.tonyirl.webtest.controller"/>
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
             <bean id="fastJsonHttpMessageConverter"
@@ -30,24 +30,6 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-        <property name="prefix" value="/"/>
-        <property name="suffix" value=".vm"/>
-        <property name="contentType" value="text/html;charset=UTF-8"/>
-        <property name="toolboxConfigLocation" value="/WEB-INF/classes/tools.xml"/>
-        <property name="viewClass" value="me.tonyirl.common.web.template.velocity.VelocityToolbox2View"/>
-        <property name="dateToolAttribute" value="date"/>
-        <!--日期函数名称-->
-        <property name="numberToolAttribute" value="number"/>
-        <!--数字函数名称-->
-        <property name="exposeSpringMacroHelpers" value="true"/>
-        <!--是否使用spring对宏定义的支持-->
-        <property name="exposeRequestAttributes" value="true"/>
-        <!--是否开放request属性-->
-        <property name="requestContextAttribute" value="request"/>
-        <!--request属性引用名称-->
-    </bean>
-
     <bean id="freemarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
         <property name="contentType" value="text/html; charset=utf-8"/>
@@ -66,7 +48,7 @@
         <property name="defaultEncoding" value="utf-8"/>
         <property name="freemarkerSettings">
             <props>
-                <prop key="template_update_delay">3600</prop>
+                <prop key="template_update_delay">#{commonConfigProperties['web.ftl.reload']}</prop>
                 <prop key="locale">zh_CN</prop>
                 <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
                 <prop key="date_format">yyyy-MM-dd</prop>
@@ -74,10 +56,6 @@
         </property>
     </bean>
     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
-    <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-        <property name="resourceLoaderPath" value="/WEB-INF/template/"/>
-        <property name="configLocation" value="classpath:velocity.properties"/>
-    </bean>
 
     <!-- spring mvc 的静态资源路径 js css 图片等 -->
     <mvc:resources mapping="/resources/**" location="/resources/"/>

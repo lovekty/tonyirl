@@ -10,7 +10,7 @@
 
     <dubbo:consumer timeout="5000000"/>
 
-    <dubbo:reference filter="param" id="rpcServiceDemo" interface="me.tonyirl.api.core.RpcServiceDemo"
-                     url="dubbo://10.33.64.7:20880/me.tonyirl.api.core.RpcServiceDemo" check="false"/>
+    <dubbo:reference id="rpcServiceDemo" interface="me.tonyirl.api.core.RpcServiceDemo"
+                     url="dubbo://127.0.0.1:#{commonConfigProperties['dubbo.port']}/me.tonyirl.api.core.RpcServiceDemo" check="false"/>
 
 </beans>

@@ -1,1 +1,15 @@
 # Created by .ignore support plugin (hsz.mobi)
+.idea/
+common/common.iml
+common/src/test/resources/
+common/target/
+core-api/core-api.iml
+core-api/target/
+core/core.iml
+dao/dao.iml
+entity/entity.iml
+generator/generator.iml
+parent.iml
+passport/passport.iml
+passport/target/
+service/service.iml

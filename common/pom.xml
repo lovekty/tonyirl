@@ -92,7 +92,7 @@
             </resource>
         </resources>
         <filters>
-            <filter>${basedir}/src/main/resources/prop-filters/common-conf-${tonyirl.env}.properties</filter>
+            <filter>${basedir}/src/main/resources/prop-filters/common-conf-${env}.properties</filter>
         </filters>
     </build>
 </project>

@@ -21,6 +21,9 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView usernameAndPasswordLoginPage() {
         ModelAndView mav = new ModelAndView("login");
+        mav.addObject("name", "tony");
+        mav.addObject("address", "北京");
+        mav.addObject("age", 28);
         return mav;
     }
 
