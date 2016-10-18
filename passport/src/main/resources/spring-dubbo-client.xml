@@ -8,12 +8,9 @@
     <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
     <dubbo:application name="passport-dubbo-client"/>
 
-    <dubbo:consumer timeout="5000000" owner="asdasdada" />
+    <dubbo:consumer timeout="5000000"/>
 
-    <dubbo:reference filter="param" id="rpcServiceDemo" interface="me.tonyirl.api.core.RpcServiceDemo" url="dubbo://172.30.12.44:20880/me.tonyirl.api.core.RpcServiceDemo" check="false">
-        <dubbo:parameter key="demo" value="hahahahah1" />
-    </dubbo:reference>
-
-    <dubbo:reference id="rpcServiceDemo1" interface="me.tonyirl.api.core.RpcServiceDemo" url="dubbo://172.30.12.44:20880/me.tonyirl.api.core.RpcServiceDemo" check="false" />
+    <dubbo:reference filter="param" id="rpcServiceDemo" interface="me.tonyirl.api.core.RpcServiceDemo"
+                     url="dubbo://10.33.64.7:20880/me.tonyirl.api.core.RpcServiceDemo" check="false"/>
 
 </beans>

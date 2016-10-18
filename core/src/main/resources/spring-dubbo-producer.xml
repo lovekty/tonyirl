@@ -13,7 +13,7 @@
 
     <dubbo:registry register="false" address="N/A"/>
 
-    <dubbo:provider filter="demo" />
+    <dubbo:provider />
 
     <dubbo:service interface="me.tonyirl.api.core.RpcServiceDemo" ref="rpcServiceDemo" protocol="dubbo"/>
 

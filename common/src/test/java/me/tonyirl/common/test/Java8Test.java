@@ -2,6 +2,7 @@ package me.tonyirl.common.test;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,5 +29,61 @@ public class Java8Test {
             return String.valueOf(integer);
         }).collect(Collectors.toList());
         result.forEach(System.out::println);
+
+
+    }
+
+    @Test
+    public void test() {
+        List<User> users = new ArrayList<>();
+
+        List<Long> ids = users.stream().map(User::getId).collect(Collectors.toList());
+
+        List<Long> ids2 = new ArrayList<>(users.size());
+        ids2.addAll(users.stream().map(User::getId).collect(Collectors.toList()));
+
+    }
+
+    @Test
+    public void testLbdNAnm() {
+        String abc = "123";
+        new Thread(() -> System.out.println(abc));
+//        new Thread(() -> abc = "abc");
+    }
+
+    @FunctionalInterface
+    interface I {
+        int dosth(String str);
+    }
+
+    public static class User {
+        private long id;
+        private String name;
+        private int gender;
+
+        public long getId() {
+            return id;
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getGender() {
+            return gender;
+        }
+
+        public void setGender(int gender) {
+            this.gender = gender;
+        }
     }
 }
+

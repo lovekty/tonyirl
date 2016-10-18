@@ -26,6 +26,14 @@
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>core</finalName>
