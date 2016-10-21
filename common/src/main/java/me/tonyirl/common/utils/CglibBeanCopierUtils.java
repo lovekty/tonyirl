@@ -15,8 +15,8 @@ import java.util.concurrent.ExecutionException;
  */
 public class CglibBeanCopierUtils {
 
+    public static final int cacheCapacity = 1 << 10;
     private static final Converter converter = (value, targetClass, context) -> ConvertUtils.convert(value, targetClass);
-    public static int cacheCapacity = 1 << 10;
     private static final Cache<Key, BeanCopier> cache = CacheBuilder.newBuilder().maximumSize(cacheCapacity).build();
 
     public static <S, T> T copy(S orig, Class<T> targetClass, boolean useConverter) throws IllegalAccessException, InstantiationException, ExecutionException {
