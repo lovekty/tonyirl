@@ -1,10 +1,12 @@
 package me.tonyirl.common.test;
 
+import me.tonyirl.common.utils.CglibBeanCopierUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 //import org.junit.runner.RunWith;
 //import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -51,6 +53,26 @@ public class Java8Test {
 //        new Thread(() -> abc = "abc");
     }
 
+    @Test
+    public void testBeanCopier() throws ExecutionException {
+        User u = new User();
+        u.setId(1L);
+        u.setName("tony");
+        u.setGender(1);
+
+        User u2 = new User();
+        User u3 = new User();
+        User u4 = new User();
+        User2 u5 = new User2();
+        CglibBeanCopierUtils.copy(u, u2, false);
+        CglibBeanCopierUtils.copy(u, u3, false);
+        CglibBeanCopierUtils.copy(u, u4, true);
+        CglibBeanCopierUtils.copy(u, u5, true);
+        System.out.println(u2.getId());
+        System.out.println(u2.getName());
+        System.out.println(u2.getGender());
+    }
+
     @FunctionalInterface
     interface I {
         int dosth(String str);
@@ -82,6 +104,36 @@ public class Java8Test {
         }
 
         public void setGender(int gender) {
+            this.gender = gender;
+        }
+    }
+
+    public static class User2 {
+        private int id;
+        private String name;
+        private String gender;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getGender() {
+            return gender;
+        }
+
+        public void setGender(String gender) {
             this.gender = gender;
         }
     }
