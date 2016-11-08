@@ -19,6 +19,10 @@ public class CglibBeanCopierUtils {
     private static final Converter converter = (value, targetClass, context) -> ConvertUtils.convert(value, targetClass);
     private static final Cache<Key, BeanCopier> cache = CacheBuilder.newBuilder().maximumSize(cacheCapacity).build();
 
+    public static <S, T> T copy(S orig, Class<T> targetClass) throws IllegalAccessException, ExecutionException, InstantiationException {
+        return copy(orig, targetClass, orig.getClass() == targetClass);
+    }
+
     public static <S, T> T copy(S orig, Class<T> targetClass, boolean useConverter) throws IllegalAccessException, InstantiationException, ExecutionException {
         BeanCopier copier = getBeanCopier(orig.getClass(), targetClass, useConverter);
         T target = targetClass.newInstance();
